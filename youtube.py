@@ -9,6 +9,7 @@ import requests
 from colorama import Fore, init
 
 intro = """
+KleimoHack
 """
 
 print(intro)
@@ -52,7 +53,7 @@ class proxy():
     def update(self):
         while True:
             data = ''
-            urls = ["http://topserver.myarena.ru/stats/EEE.txt"]
+            urls = ["https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&ssl=yes","https://www.proxy-list.download/api/v1/get?type=https&anon=elite"]
             for url in urls:
                 data += requests.get(url).text
                 
@@ -63,7 +64,7 @@ class proxy():
         random1 = random.choice(self.splited) #choose a random proxie
         return random1
     def FormatProxy(self):
-	    proxyOutput = {'http' :'http://'+self.get_proxy()}
+	    proxyOutput = {'https' :'https://'+self.get_proxy()}
 	    return proxyOutput
 
     def __init__(self):
